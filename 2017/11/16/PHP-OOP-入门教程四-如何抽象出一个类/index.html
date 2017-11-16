@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="今天要对接一个与泰国航空公司合作的项目，要用到RSA 加密及解密的算法，现在记录下，方便以后进行查阅。 创建RSA类 rsa.class.php1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484">
+<meta name="description" content="如何抽象出一个类面向对象程序的单位就是对象，但对象又是通过类的实例化出来的，所以我们首先要做的就是如何来声明类， 做出来一个类很容易，只要掌握基本的程序语法定义规则就可以做的出来，那么难点在那里呢？ 一个项目要用到多少个类，用多少个对象， 在那要定义类，定义一个什么样的类，这个类实例化出多少个对象， 类里面有多少个属性">
 <meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php中rsa加密及解密和签名及验签">
-<meta property="og:url" content="http://yoursite.com/2017/11/16/RSA-教程/index.html">
+<meta property="og:title" content="PHP(OOP)入门教程四 如何抽象出一个类">
+<meta property="og:url" content="http://yoursite.com/2017/11/16/PHP-OOP-入门教程四-如何抽象出一个类/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="今天要对接一个与泰国航空公司合作的项目，要用到RSA 加密及解密的算法，现在记录下，方便以后进行查阅。 创建RSA类 rsa.class.php12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061&amp;lt;?phpnamespa">
+<meta property="og:description" content="如何抽象出一个类面向对象程序的单位就是对象，但对象又是通过类的实例化出来的，所以我们首先要做的就是如何来声明类， 做出来一个类很容易，只要掌握基本的程序语法定义规则就可以做的出来，那么难点在那里呢？ 一个项目要用到多少个类，用多少个对象， 在那要定义类，定义一个什么样的类，这个类实例化出多少个对象， 类里面有多少个属性， 有多少个方法等等,这就需要读者通过在实际的开发中就实际问题分析设计和总结了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-16T11:04:38.690Z">
+<meta property="og:updated_time" content="2017-11-16T16:07:05.266Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php中rsa加密及解密和签名及验签">
-<meta name="twitter:description" content="今天要对接一个与泰国航空公司合作的项目，要用到RSA 加密及解密的算法，现在记录下，方便以后进行查阅。 创建RSA类 rsa.class.php12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061&amp;lt;?phpnamespa">
+<meta name="twitter:title" content="PHP(OOP)入门教程四 如何抽象出一个类">
+<meta name="twitter:description" content="如何抽象出一个类面向对象程序的单位就是对象，但对象又是通过类的实例化出来的，所以我们首先要做的就是如何来声明类， 做出来一个类很容易，只要掌握基本的程序语法定义规则就可以做的出来，那么难点在那里呢？ 一个项目要用到多少个类，用多少个对象， 在那要定义类，定义一个什么样的类，这个类实例化出多少个对象， 类里面有多少个属性， 有多少个方法等等,这就需要读者通过在实际的开发中就实际问题分析设计和总结了。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/16/RSA-教程/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/16/PHP-OOP-入门教程四-如何抽象出一个类/"/>
 
 
 
 
 
-  <title>php中rsa加密及解密和签名及验签 | 我的博客</title>
+  <title>PHP(OOP)入门教程四 如何抽象出一个类 | 我的博客</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/RSA-教程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/PHP-OOP-入门教程四-如何抽象出一个类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="suhuajun">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">php中rsa加密及解密和签名及验签</h1>
+          <h1 class="post-title" itemprop="name headline">PHP(OOP)入门教程四 如何抽象出一个类</h1>
         
 
         <div class="post-meta">
@@ -274,7 +274,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T18:16:22+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T23:56:20+08:00">
                 2017-11-16
               </time>
             
@@ -297,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP教程/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP教程</span>
+                  <a href="/categories/PHP面向对象教程/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP面向对象教程 </span>
                   </a>
                 </span>
 
@@ -334,8 +334,12 @@
       
 
       
-        <p>今天要对接一个与泰国航空公司合作的项目，要用到RSA 加密及解密的算法，现在记录下，方便以后进行查阅。</p>
-<h3 id="创建RSA类-rsa-class-php"><a href="#创建RSA类-rsa-class-php" class="headerlink" title="创建RSA类 rsa.class.php"></a>创建RSA类 rsa.class.php</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace Rsa;</span><br><span class="line">/* </span><br><span class="line"> RSA 类</span><br><span class="line"> author:suhuajun</span><br><span class="line">*/</span><br><span class="line">class Rsa&#123;</span><br><span class="line"></span><br><span class="line">	public <span class="variable">$publicKey</span>;</span><br><span class="line">	public <span class="variable">$privateKey</span>;</span><br><span class="line"></span><br><span class="line">	public <span class="keyword">function</span> __construct(<span class="variable">$publicKey</span>,<span class="variable">$privateKey</span>)&#123;</span><br><span class="line">		<span class="variable">$this</span>-&gt;publicKey  = <span class="variable">$publicKey</span>;</span><br><span class="line">		<span class="variable">$this</span>-&gt;privateKey = <span class="variable">$privateKey</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	/*</span><br><span class="line">	*获取RSA 公钥</span><br><span class="line">	*/</span><br><span class="line">	public <span class="keyword">function</span> <span class="function"><span class="title">getPublicKey</span></span>()&#123;</span><br><span class="line">		<span class="built_in">return</span> openssl_pkey_get_public(<span class="variable">$this</span>-&gt;publicKey);</span><br><span class="line">   	&#125;</span><br><span class="line"></span><br><span class="line">   	/*</span><br><span class="line">   	*获取RSA 私私钥</span><br><span class="line">   	*/</span><br><span class="line">   	public <span class="keyword">function</span> <span class="function"><span class="title">getPrivateKey</span></span>()&#123;</span><br><span class="line">   		<span class="built_in">return</span> openssl_pkey_get_private(<span class="variable">$this</span>-&gt;privateKey);</span><br><span class="line">   	&#125;</span><br><span class="line">	/**     </span><br><span class="line">	* 公钥加密     </span><br><span class="line">	* @param string <span class="variable">$data</span>     </span><br><span class="line">	* @<span class="built_in">return</span> null|string     </span><br><span class="line">	*/    </span><br><span class="line">	public <span class="keyword">function</span> publicEncrypt(<span class="variable">$data</span> = <span class="string">''</span>)   </span><br><span class="line">	&#123;        </span><br><span class="line">		<span class="keyword">if</span> (!is_string(<span class="variable">$data</span>)) &#123;            </span><br><span class="line">			<span class="built_in">return</span> null;        </span><br><span class="line">		&#125; </span><br><span class="line">		openssl_public_encrypt(<span class="variable">$data</span>,<span class="variable">$encrypted</span>,<span class="variable">$this</span>-&gt;getPublicKey());</span><br><span class="line">		<span class="variable">$datas</span> = base64_encode(<span class="variable">$encrypted</span>);</span><br><span class="line">		<span class="built_in">return</span> openssl_public_encrypt(<span class="variable">$data</span>,<span class="variable">$encrypted</span>,<span class="variable">$this</span>-&gt;getPublicKey()) ? base64_encode(<span class="variable">$encrypted</span>) : null;    </span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**     </span><br><span class="line">	* 私钥解密     </span><br><span class="line">	* @param string <span class="variable">$encrypted</span>     </span><br><span class="line">	* @<span class="built_in">return</span> null     </span><br><span class="line">	*/    </span><br><span class="line">	public <span class="keyword">function</span> privDecrypt(<span class="variable">$encrypted</span> = <span class="string">''</span>)    </span><br><span class="line">	&#123;        </span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (!is_string(<span class="variable">$encrypted</span>)) &#123;            </span><br><span class="line">			<span class="built_in">return</span> null;        </span><br><span class="line">		&#125; </span><br><span class="line"></span><br><span class="line">		<span class="variable">$privateKey</span> =<span class="variable">$this</span>-&gt;getPrivateKey();</span><br><span class="line">		<span class="variable">$result</span> = openssl_private_decrypt(base64_decode(<span class="variable">$encrypted</span>),<span class="variable">$decrypted</span>,<span class="variable">$privateKey</span>);</span><br><span class="line">		<span class="built_in">return</span> <span class="variable">$result</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+        <h2 id="如何抽象出一个类"><a href="#如何抽象出一个类" class="headerlink" title="如何抽象出一个类"></a>如何抽象出一个类</h2><p>面向对象程序的单位就是对象，但对象又是通过类的实例化出来的，所以我们首先要做的就是如何来声明类， 做出来一个类很容易，只要掌握基本的程序语法定义规则就可以做的出来，那么难点在那里呢？ 一个项目要用到多少个类，用多少个对象， 在那要定义类，定义一个什么样的类，这个类实例化出多少个对象， 类里面有多少个属性， 有多少个方法等等,这就需要读者通过在实际的开发中就实际问题分析设计和总结了。 类的定义：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class 类名&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="属性又叫做这个类的成员属性，方法叫做这个类的成员方法"><a href="#属性又叫做这个类的成员属性，方法叫做这个类的成员方法" class="headerlink" title="属性又叫做这个类的成员属性，方法叫做这个类的成员方法"></a>属性又叫做这个类的成员属性，方法叫做这个类的成员方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">	成员属性：姓名，性别，身高……</span><br><span class="line">	成员方法：会赚钱，爱睡懒觉……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过在类定义中使用关键字” public “来声明变量，即创建了类的属性，虽然在声明成员属性的时候可以给定初值， 但是在声明类的时候给成员属性初始值是没有必要的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Person&#123;</span><br><span class="line">	//成员属性</span><br><span class="line">	public <span class="variable">$name</span>;</span><br><span class="line">	public <span class="variable">$age</span>;</span><br><span class="line">	public <span class="variable">$sex</span>;</span><br><span class="line"></span><br><span class="line">	//成员方法</span><br><span class="line">	public <span class="keyword">function</span> <span class="function"><span class="title">say</span></span>()&#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="string">"I can say hello"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	public <span class="keyword">function</span> <span class="function"><span class="title">run</span></span>()&#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="string">"I can running"</span>;</span><br><span class="line">	&#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>上面就是一个类的声明， 从属性和方法上声明出来的一个类， 但是成员属性最好在声明的时候不要给初使的值， 因为我们做的人这个类是一个描述信息， 将来用它实例化对象， 比如实例化出来10个人对象， 那么这10个人， 每一个人的名子， 性别， 年龄都是不一样的， 所以最好不要在这个地方给成员属性赋初值， 而是对每个对象分别赋值的。<br>用同样的办法可以做出你想要的类了， 只要你能用属性和方法能描述出来的实体都可以定义成类， 去实例化对象。</p>
 
       
     </div>
@@ -366,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/16/My-first-blog/" rel="next" title="My first blog">
-                <i class="fa fa-chevron-left"></i> My first blog
+              <a href="/2017/11/16/PHP-oop-入门教程三-什么是面向对象编程/" rel="next" title="PHP(OOP)入门教程三  什么是面向对象编程">
+                <i class="fa fa-chevron-left"></i> PHP(OOP)入门教程三  什么是面向对象编程
               </a>
             
           </div>
@@ -375,10 +379,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/16/PHP-oop-入门教程一/" rel="prev" title="PHP(OOP)入门教程一 什么是面向对象?">
-                PHP(OOP)入门教程一 什么是面向对象? <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -512,7 +512,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建RSA类-rsa-class-php"><span class="nav-number">1.</span> <span class="nav-text">创建RSA类 rsa.class.php</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何抽象出一个类"><span class="nav-number">1.</span> <span class="nav-text">如何抽象出一个类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性又叫做这个类的成员属性，方法叫做这个类的成员方法"><span class="nav-number">2.</span> <span class="nav-text">属性又叫做这个类的成员属性，方法叫做这个类的成员方法</span></a></li></ol></div>
             
 
           </div>
