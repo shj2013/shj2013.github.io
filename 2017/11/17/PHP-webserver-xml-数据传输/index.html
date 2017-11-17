@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="PHP," />
+  <meta name="keywords" content="PHP,SOAP,WEB SERVICE," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="什么是面向对象编程就不说他的概念，如果你想建立一个电脑教室，首先要有一个房间， 房间里面要有N台电脑，有N个桌子， N个椅子， 白板， 投影机等等，这些是什么，刚才咱们说了， 这就是对象，能看到的一个个的实体，可以说这个电脑教室的单位就是这一个个的实体对象， 它们共同组成了这个电脑教室，那么我们是做程序，这和面向对象有">
-<meta name="keywords" content="PHP">
+<meta name="description" content="今天要对接一个项目是用 web server 协议的。头都大了，做个记录,方便查看。 WSDL WSDL (Web Services Description Language,Web服务描述语言)是一种XML Application，他将Web服务描述定义为一组服务访问点，客户端可以通过这些服务访问点对包含面向文档信息">
+<meta name="keywords" content="PHP,SOAP,WEB SERVICE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP(OOP)入门教程三  什么是面向对象编程">
-<meta property="og:url" content="http://yoursite.com/2017/11/16/PHP-oop-入门教程三-什么是面向对象编程/index.html">
+<meta property="og:title" content="利用PHP SOAP实现WEB SERVICE">
+<meta property="og:url" content="http://yoursite.com/2017/11/17/PHP-webserver-xml-数据传输/index.html">
 <meta property="og:site_name" content="爱生活 爱PHP">
-<meta property="og:description" content="什么是面向对象编程就不说他的概念，如果你想建立一个电脑教室，首先要有一个房间， 房间里面要有N台电脑，有N个桌子， N个椅子， 白板， 投影机等等，这些是什么，刚才咱们说了， 这就是对象，能看到的一个个的实体，可以说这个电脑教室的单位就是这一个个的实体对象， 它们共同组成了这个电脑教室，那么我们是做程序，这和面向对象有什么关系呢？开发一个系统程序和建一个电脑教室类似，你把每个独立的功能模块抽象成类">
+<meta property="og:description" content="今天要对接一个项目是用 web server 协议的。头都大了，做个记录,方便查看。 WSDL WSDL (Web Services Description Language,Web服务描述语言)是一种XML Application，他将Web服务描述定义为一组服务访问点，客户端可以通过这些服务访问点对包含面向文档信息或面向过程调用的服务进行访问(类似远程过程调用)。WSDL首先对访问的操作和访问">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-16T15:48:18.897Z">
+<meta property="og:updated_time" content="2017-11-17T11:59:52.384Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP(OOP)入门教程三  什么是面向对象编程">
-<meta name="twitter:description" content="什么是面向对象编程就不说他的概念，如果你想建立一个电脑教室，首先要有一个房间， 房间里面要有N台电脑，有N个桌子， N个椅子， 白板， 投影机等等，这些是什么，刚才咱们说了， 这就是对象，能看到的一个个的实体，可以说这个电脑教室的单位就是这一个个的实体对象， 它们共同组成了这个电脑教室，那么我们是做程序，这和面向对象有什么关系呢？开发一个系统程序和建一个电脑教室类似，你把每个独立的功能模块抽象成类">
+<meta name="twitter:title" content="利用PHP SOAP实现WEB SERVICE">
+<meta name="twitter:description" content="今天要对接一个项目是用 web server 协议的。头都大了，做个记录,方便查看。 WSDL WSDL (Web Services Description Language,Web服务描述语言)是一种XML Application，他将Web服务描述定义为一组服务访问点，客户端可以通过这些服务访问点对包含面向文档信息或面向过程调用的服务进行访问(类似远程过程调用)。WSDL首先对访问的操作和访问">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/16/PHP-oop-入门教程三-什么是面向对象编程/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/17/PHP-webserver-xml-数据传输/"/>
 
 
 
 
 
-  <title>PHP(OOP)入门教程三  什么是面向对象编程 | 爱生活 爱PHP</title>
+  <title>利用PHP SOAP实现WEB SERVICE | 爱生活 爱PHP</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/PHP-oop-入门教程三-什么是面向对象编程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/17/PHP-webserver-xml-数据传输/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="suhuajun">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PHP(OOP)入门教程三  什么是面向对象编程</h1>
+          <h1 class="post-title" itemprop="name headline">利用PHP SOAP实现WEB SERVICE</h1>
         
 
         <div class="post-meta">
@@ -274,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T23:46:37+08:00">
-                2017-11-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-17T19:42:08+08:00">
+                2017-11-17
               </time>
             
 
@@ -297,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP面向对象教程/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP面向对象教程 </span>
+                  <a href="/categories/PHP-SOAP-XML/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP SOAP XML</span>
                   </a>
                 </span>
 
@@ -334,7 +334,17 @@
       
 
       
-        <h2 id="什么是面向对象编程"><a href="#什么是面向对象编程" class="headerlink" title="什么是面向对象编程"></a>什么是面向对象编程</h2><p>就不说他的概念，如果你想建立一个电脑教室，首先要有一个房间， 房间里面要有N台电脑，有N个桌子， N个椅子， 白板， 投影机等等，这些是什么，刚才咱们说了， 这就是对象，能看到的一个个的实体，可以说这个电脑教室的单位就是这一个个的实体对象， 它们共同组成了这个电脑教室，那么我们是做程序，这和面向对象有什么关系呢？开发一个系统程序和建一个电脑教室类似，你把每个独立的功能模块抽象成类形成 对象，由多个对象组成这个系统，这些对象之间都能够接收信息、处理数据和向其它对象发送信息等等相互作用。就构成了面向对象的程序。</p>
+        <p>今天要对接一个项目是用 web server 协议的。头都大了，做个记录,方便查看。</p>
+<h3 id="WSDL"><a href="#WSDL" class="headerlink" title="WSDL"></a>WSDL</h3><p> WSDL (Web Services Description Language,Web服务描述语言)是一种XML Application，他将Web服务描述定义为一组服务访问点，客户端可以通过这些服务访问点对包含面向文档信息或面向过程调用的服务进行访问(类似远程过程调用)。WSDL首先对访问的操作和访问时使用的请求/响应消息进行抽象描述，然后将其绑定到具体的传输协议和消息格式上以最终定义具体部署的服务访问点。相关的具体部署的服务访问点通过组合就成为抽象的Web服务。 本文将详细讲解WSDL文档的结构，并分析每个元素的作用。</p>
+<h3 id="利用PHP-SOAP实现WEB-SERVICE"><a href="#利用PHP-SOAP实现WEB-SERVICE" class="headerlink" title="利用PHP SOAP实现WEB SERVICE"></a>利用PHP SOAP实现WEB SERVICE</h3><p> php有两个扩展可以实现web service，一个是NuSoap,一个是php 官方的soap扩展，由于soap是官方的，所以我们这里以soap来实现web service.由于默认是没有打开soap扩展的，所以自己先看一下soap扩展有没有打开。<br> 先配置下PHP的soap环境支持：<br> 找到php.ini文件<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">；extension=php_soap.dll</span><br></pre></td></tr></table></figure></p>
+<p>删除掉”；” ，重启apache服务器<br>要实现一个SOAP 型的接口，有两种方式：一种有WSDL文件方式、一中无WSDL文件方式！<br>在soap编写web service的过程中主要用到了SoapClient,SoapServer,SoapFault三个类。<br>SoapClient类<br>这个类用来使用Web services。SoapClient类可以作为给定Web services的客户端。<br>它有两种操作形式：</p>
+<ul>
+<li>WSDL 模式</li>
+<li>Non-WSDL 模式<br>在WSDL模式中，构造器可以使用WSDL文件名作为参数，并从WSDL中提取服务所使用的信息。<br>non-WSDL模式中使用参数来传递要使用的信息。<br>SoapServer类<br>这个类可以用来提供Web services。与SoapClient类似，SoapServer也有两种操作模式：WSDL模式和non-WSDL模式。这两种模式的意义跟 SoapClient的两种模式一样。在WSDL模式中，服务实现了WSDL提供的接口；在non-WSDL模式中，参数被用来管理服务的行为。<br>在SoapServer类的众多方法中，有三个方法比较重要。它们是SoapServer::setClass()，SoapServer::addFunction()和SoapServer::handle()。<br>下面给出实例：<br>定义一个提供服务的php类,这个类所提供的函数就是web service对外提供的服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">Class PersonInfo</span><br><span class="line">&#123;</span><br><span class="line">/**</span><br><span class="line"> *    返回姓名</span><br><span class="line"> *    @return string </span><br><span class="line"> */</span><br><span class="line">public function getName()&#123;</span><br><span class="line">    return &quot;My Name is Chance&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>服务器端的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//包含提供服务的类进来</span><br><span class="line">require_once(&apos;PersonInfo.php&apos;);</span><br><span class="line">//wsdl方式提供web service,如果生成了wsdl文件则可直接传递到//SoapServer的构造函数中</span><br><span class="line">//$s = new SoapServer(&apos;PersonInfo.wsdl&apos;);</span><br><span class="line">//doesn&apos;t work 只有location不能提供web service</span><br><span class="line">//output:looks like we got no XML document</span><br><span class="line">//$s = new SoapServer(null,array(&quot;location&quot;=&gt;&quot;http://localhost/Test/MyService/Server.php&quot;));</span><br><span class="line"></span><br><span class="line">//下面两种方式均可以工作，只要指定了相应的uri</span><br><span class="line">//$s = new SoapServer(null,array(&quot;uri&quot;=&gt;&quot;Server.php&quot;));</span><br><span class="line">$s = new SoapServer(null,array(&quot;location&quot;=&gt;&quot;http://localhost/Test/MyService/Server.php&quot;,&quot;uri&quot;=&gt;&quot;Server.php&quot;));</span><br><span class="line">$s -&gt; setClass(&quot;PersonInfo&quot;);</span><br><span class="line">$s -&gt; handle();</span><br><span class="line"> ?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>下面是客户端代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">try&#123;</span><br><span class="line">//wsdl方式调用web service</span><br><span class="line">//wsdl方式中由于wsdl文件写定了，如果发生添加删除函数等操作改动，不会反应到wsdl，相对non-wsdl方式</span><br><span class="line">//来说不够灵活</span><br><span class="line">//$soap = new SoapClient(&quot;http://localhost/Test/MyService/PersonInfo.wsdl&quot;);</span><br><span class="line"></span><br><span class="line">//non-wsdl方式调用web service    </span><br><span class="line">//在non-wsdl方式中option location系必须提供的,而服务端的location是选择性的，可以不提供</span><br><span class="line">$soap = new SoapClient(null,array(&apos;location&apos;=&gt;&quot;http://localhost/Test/MyService/Server.php&quot;,&apos;uri&apos;=&gt;&apos;Server.php&apos;));</span><br><span class="line"></span><br><span class="line">//两种调用方式，直接调用方法，和用__soapCall简接调用</span><br><span class="line">$result1 = $soap-&gt;getName();</span><br><span class="line">$result2 = $soap-&gt;__soapCall(&quot;getName&quot;,array());</span><br><span class="line">echo $result1;</span><br><span class="line">echo &quot;&lt;br/&gt;&quot;;</span><br><span class="line">echo $result2;</span><br><span class="line"></span><br><span class="line">&#125;catch(SoapFault $e)&#123;</span><br><span class="line">echo $e-&gt;getMessage();</span><br><span class="line">&#125;catch(Exception $e)&#123;</span><br><span class="line">echo $e-&gt;getMessage();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -354,6 +364,10 @@
           
             <a href="/tags/PHP/" rel="tag"># PHP</a>
           
+            <a href="/tags/SOAP/" rel="tag"># SOAP</a>
+          
+            <a href="/tags/WEB-SERVICE/" rel="tag"># WEB SERVICE</a>
+          
         </div>
       
 
@@ -365,8 +379,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/16/PHP-OOP-入门教程二-什么是类，什么是对象，类和对象之间的关系/" rel="next" title="PHP(OOP)入门教程二 什么是类，什么是对象，类和对象之间的关系">
-                <i class="fa fa-chevron-left"></i> PHP(OOP)入门教程二 什么是类，什么是对象，类和对象之间的关系
+              <a href="/2017/11/17/PHP-函数库/" rel="next" title="PHP 函数库">
+                <i class="fa fa-chevron-left"></i> PHP 函数库
               </a>
             
           </div>
@@ -374,10 +388,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/16/PHP-OOP-入门教程四-如何抽象出一个类/" rel="prev" title="PHP(OOP)入门教程四 如何抽象出一个类">
-                PHP(OOP)入门教程四 如何抽象出一个类 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,7 +521,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是面向对象编程"><span class="nav-number">1.</span> <span class="nav-text">什么是面向对象编程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#WSDL"><span class="nav-number">1.</span> <span class="nav-text">WSDL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用PHP-SOAP实现WEB-SERVICE"><span class="nav-number">2.</span> <span class="nav-text">利用PHP SOAP实现WEB SERVICE</span></a></li></ol></div>
             
 
           </div>
