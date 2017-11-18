@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="什么是类，什么是对象，类和对象之间的关系类的概念：类是具有相同属性和服务的一组对象的集合。它为属于该类的所有对象提供了统一的抽象描述，其内部包括属性和服务两个主要部分。在面向对象的编程语言中，类是一个独立的程序单位，它应该有一个类名并包括属性说明和服务说明两个主要部分。对象的概念：对象是系统中用来描述客观事物的一个实体">
+<meta name="description" content="PHP创建数组的方法数组是PHP最重要的数据结构之一，数组在PHP的用处很广泛。与其他很多语言的数组实现方式不同，PHP不需要在创建数组时指定其大小。事实上，因为PHP是一种松散类型的语言，所以甚至不需要在使用数组前先行声明，尽管没有限制，PHP仍提供了正式和非正式的数组声明方法。两个方法各有优点，都值得学习。本节将分">
 <meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP(OOP)入门教程二 什么是类，什么是对象，类和对象之间的关系">
-<meta property="og:url" content="http://yoursite.com/2017/11/16/PHP-OOP-入门教程二-什么是类，什么是对象，类和对象之间的关系/index.html">
+<meta property="og:title" content="PHP 数组教程2 创建数组的方法">
+<meta property="og:url" content="http://yoursite.com/2017/11/18/PHP-数组教程2-创建数组的方法/index.html">
 <meta property="og:site_name" content="爱生活 爱PHP">
-<meta property="og:description" content="什么是类，什么是对象，类和对象之间的关系类的概念：类是具有相同属性和服务的一组对象的集合。它为属于该类的所有对象提供了统一的抽象描述，其内部包括属性和服务两个主要部分。在面向对象的编程语言中，类是一个独立的程序单位，它应该有一个类名并包括属性说明和服务说明两个主要部分。对象的概念：对象是系统中用来描述客观事物的一个实体，它是构成系统的一个基本单位。一个对象由一组属性和对这组属性进行操作的一组服务组">
+<meta property="og:description" content="PHP创建数组的方法数组是PHP最重要的数据结构之一，数组在PHP的用处很广泛。与其他很多语言的数组实现方式不同，PHP不需要在创建数组时指定其大小。事实上，因为PHP是一种松散类型的语言，所以甚至不需要在使用数组前先行声明，尽管没有限制，PHP仍提供了正式和非正式的数组声明方法。两个方法各有优点，都值得学习。本节将分别讨论这两种方法，首先来介绍非正式的方法。 要引用PHP数组中的各个元素，可以用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-16T15:42:43.900Z">
+<meta property="og:updated_time" content="2017-11-18T05:43:17.025Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP(OOP)入门教程二 什么是类，什么是对象，类和对象之间的关系">
-<meta name="twitter:description" content="什么是类，什么是对象，类和对象之间的关系类的概念：类是具有相同属性和服务的一组对象的集合。它为属于该类的所有对象提供了统一的抽象描述，其内部包括属性和服务两个主要部分。在面向对象的编程语言中，类是一个独立的程序单位，它应该有一个类名并包括属性说明和服务说明两个主要部分。对象的概念：对象是系统中用来描述客观事物的一个实体，它是构成系统的一个基本单位。一个对象由一组属性和对这组属性进行操作的一组服务组">
+<meta name="twitter:title" content="PHP 数组教程2 创建数组的方法">
+<meta name="twitter:description" content="PHP创建数组的方法数组是PHP最重要的数据结构之一，数组在PHP的用处很广泛。与其他很多语言的数组实现方式不同，PHP不需要在创建数组时指定其大小。事实上，因为PHP是一种松散类型的语言，所以甚至不需要在使用数组前先行声明，尽管没有限制，PHP仍提供了正式和非正式的数组声明方法。两个方法各有优点，都值得学习。本节将分别讨论这两种方法，首先来介绍非正式的方法。 要引用PHP数组中的各个元素，可以用">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/16/PHP-OOP-入门教程二-什么是类，什么是对象，类和对象之间的关系/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/18/PHP-数组教程2-创建数组的方法/"/>
 
 
 
 
 
-  <title>PHP(OOP)入门教程二 什么是类，什么是对象，类和对象之间的关系 | 爱生活 爱PHP</title>
+  <title>PHP 数组教程2 创建数组的方法 | 爱生活 爱PHP</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/PHP-OOP-入门教程二-什么是类，什么是对象，类和对象之间的关系/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/18/PHP-数组教程2-创建数组的方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="suhuajun">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PHP(OOP)入门教程二 什么是类，什么是对象，类和对象之间的关系</h1>
+          <h1 class="post-title" itemprop="name headline">PHP 数组教程2 创建数组的方法</h1>
         
 
         <div class="post-meta">
@@ -274,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T23:40:54+08:00">
-                2017-11-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T13:35:15+08:00">
+                2017-11-18
               </time>
             
 
@@ -297,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP面向对象教程/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP面向对象教程 </span>
+                  <a href="/categories/PHP数组教程/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP数组教程</span>
                   </a>
                 </span>
 
@@ -334,7 +334,11 @@
       
 
       
-        <h2 id="什么是类，什么是对象，类和对象之间的关系"><a href="#什么是类，什么是对象，类和对象之间的关系" class="headerlink" title="什么是类，什么是对象，类和对象之间的关系"></a>什么是类，什么是对象，类和对象之间的关系</h2><p>类的概念：类是具有相同属性和服务的一组对象的集合。它为属于该类的所有对象提供了统一的抽象描述，其内部包括属性和服务两个主要部分。在面向对象的编程语言中，类是一个独立的程序单位，它应该有一个类名并包括属性说明和服务说明两个主要部分。<br>对象的概念：对象是系统中用来描述客观事物的一个实体，它是构成系统的一个基本单位。一个对象由一组属性和对这组属性进行操作的一组服务组成。从更抽象 的角度来说，对象是问题域或实现域中某些事物的一个抽象，它反映该事物在系统中需要保存的信息和发挥的作用；它是一组属性和有权对这些属性进行操作的一组 服务的封装体。客观世界是由对象和对象之间的联系组成的。<br>类与对象的关系就如模具和铸件的关系，类的实例化结果就是对象，而对一类对象的抽象就是类.类描述了一组有相同特性（属性）和相同行为（方法）的对象。上面大概就是它们的定义吧， 也许你是刚接触面象对象的朋友， 不要被概念的东西搞晕了， 给你举个列子吧，如果你去中关村想买几台组装的PC机，到了那里你第一步要干什么， 是不是装机的工程师和你坐在一起，按你提供的信息和你一起完成一个装机的配置单呀， 这个配置单就可以想像成是类，它就是一张纸，但是它上面记录了你要买的PC机的信息，如果用这个配置单买10台机器，那么这10台机子，都是按这个配置单 组成的，所以说这10台机子是一个类型的，也可以说是一类的。那么什么是对象呢，类的实例化结果就是对象, 用这个配置单配置出来（实例化出来）的机子就是对象， 是我们可以操作的实体， 10台机子， 10个对象。 每台机子都是独立的，只能说明他们是同一类的，对其中一个机做任何动作都不会影响其它9台机器，但是我对类修改， 也就是在这个配置单上加一个或少一个配件， 那么装出来的9个机子都改变了， 这是类和对象的关系(类的实例化结果就是对象) 。</p>
+        <h3 id="PHP创建数组的方法"><a href="#PHP创建数组的方法" class="headerlink" title="PHP创建数组的方法"></a>PHP创建数组的方法</h3><p>数组是PHP最重要的数据结构之一，数组在PHP的用处很广泛。与其他很多语言的数组实现方式不同，PHP不需要在创建数组时指定其大小。事实上，因为PHP是一种松散类型的语言，所以甚至不需要在使用数组前先行声明，尽管没有限制，PHP仍提供了正式和非正式的数组声明方法。两个方法各有优点，都值得学习。本节将分别讨论这两种方法，首先来介绍非正式的方法。</p>
+<p>要引用PHP数组中的各个元素，可以用一对中括号来指示。因为数组没有大小限制，所以只需建立引用就可以创建数组，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$countries[0]=&apos;China&apos;;</span><br><span class="line">echo $countries[0]; // China;</span><br></pre></td></tr></table></figure></p>
+<p>接下来，可以为数组索引映射新值，从而添加其他的值，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$countries[1]=&apos;Japan&apos;;</span><br><span class="line">$countries[2]=&apos;Canda&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>当然，也可以这样建立数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$countries[]=&apos;China&apos;;</span><br><span class="line">$countries[]=&quot;Japan&quot;;</span><br><span class="line">$countries[]=&quot;Canda&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>使用array()创建数组 (最常用的方法)<br>array()函数接受0个或多个元素作为输入，返回一个包含这些收入元素的数组。其形式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$countries=array(&apos;China&apos;,&apos;Japan&apos;,&apos;Canda&apos;);</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -365,8 +369,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/16/PHP-oop-入门教程一/" rel="next" title="PHP(OOP)入门教程一 什么是面向对象?">
-                <i class="fa fa-chevron-left"></i> PHP(OOP)入门教程一 什么是面向对象?
+              <a href="/2017/11/18/PHP-数组教程1/" rel="next" title="PHP 数组教程1 数组概念与定义">
+                <i class="fa fa-chevron-left"></i> PHP 数组教程1 数组概念与定义
               </a>
             
           </div>
@@ -374,10 +378,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/16/PHP-oop-入门教程三-什么是面向对象编程/" rel="prev" title="PHP(OOP)入门教程三  什么是面向对象编程">
-                PHP(OOP)入门教程三  什么是面向对象编程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,7 +511,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是类，什么是对象，类和对象之间的关系"><span class="nav-number">1.</span> <span class="nav-text">什么是类，什么是对象，类和对象之间的关系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP创建数组的方法"><span class="nav-number">1.</span> <span class="nav-text">PHP创建数组的方法</span></a></li></ol></div>
             
 
           </div>
