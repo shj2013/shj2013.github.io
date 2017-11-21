@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="PHP增加与删除数组元素有时候我们需要扩展一个数组，或者删掉数组的一部分，PHP为扩展和缩小数组提供了一些函数。对于那些希望模仿各种队列实现（FIFO、LIFO）的程序员来说，这些函数可以提供便利。顾名思义，从这些函数的函数名（push、pop、shift和unshift）就清楚地反映出其作用。 PS：传统的队列是一种">
+<meta name="description" content="sort()函数">
 <meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP 数组教程3 PHP增加与删除数组元素">
-<meta property="og:url" content="http://yoursite.com/2017/11/18/PHP-数组教程3-PHP增加与删除数组元素/index.html">
+<meta property="og:title" content="PHP 数组教程5 PHP数组元素的顺序与逆序排序">
+<meta property="og:url" content="http://yoursite.com/2017/11/20/PHP-数组教程5/index.html">
 <meta property="og:site_name" content="爱生活 爱PHP">
-<meta property="og:description" content="PHP增加与删除数组元素有时候我们需要扩展一个数组，或者删掉数组的一部分，PHP为扩展和缩小数组提供了一些函数。对于那些希望模仿各种队列实现（FIFO、LIFO）的程序员来说，这些函数可以提供便利。顾名思义，从这些函数的函数名（push、pop、shift和unshift）就清楚地反映出其作用。 PS：传统的队列是一种数据结构，删除元素与加入元素的顺序相同，就称为先进先出，或FIFO。相反，栈是另">
+<meta property="og:description" content="sort()函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-19T13:42:07.203Z">
+<meta property="og:updated_time" content="2017-11-20T13:52:21.481Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP 数组教程3 PHP增加与删除数组元素">
-<meta name="twitter:description" content="PHP增加与删除数组元素有时候我们需要扩展一个数组，或者删掉数组的一部分，PHP为扩展和缩小数组提供了一些函数。对于那些希望模仿各种队列实现（FIFO、LIFO）的程序员来说，这些函数可以提供便利。顾名思义，从这些函数的函数名（push、pop、shift和unshift）就清楚地反映出其作用。 PS：传统的队列是一种数据结构，删除元素与加入元素的顺序相同，就称为先进先出，或FIFO。相反，栈是另">
+<meta name="twitter:title" content="PHP 数组教程5 PHP数组元素的顺序与逆序排序">
+<meta name="twitter:description" content="sort()函数">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/18/PHP-数组教程3-PHP增加与删除数组元素/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/20/PHP-数组教程5/"/>
 
 
 
 
 
-  <title>PHP 数组教程3 PHP增加与删除数组元素 | 爱生活 爱PHP</title>
+  <title>PHP 数组教程5 PHP数组元素的顺序与逆序排序 | 爱生活 爱PHP</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/18/PHP-数组教程3-PHP增加与删除数组元素/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/PHP-数组教程5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="suhuajun">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PHP 数组教程3 PHP增加与删除数组元素</h1>
+          <h1 class="post-title" itemprop="name headline">PHP 数组教程5 PHP数组元素的顺序与逆序排序</h1>
         
 
         <div class="post-meta">
@@ -274,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T13:48:40+08:00">
-                2017-11-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T16:04:48+08:00">
+                2017-11-20
               </time>
             
 
@@ -334,14 +334,7 @@
       
 
       
-        <h3 id="PHP增加与删除数组元素"><a href="#PHP增加与删除数组元素" class="headerlink" title="PHP增加与删除数组元素"></a>PHP增加与删除数组元素</h3><p>有时候我们需要扩展一个数组，或者删掉数组的一部分，PHP为扩展和缩小数组提供了一些函数。对于那些希望模仿各种队列实现（FIFO、LIFO）的程序员来说，这些函数可以提供便利。顾名思义，从这些函数的函数名（push、pop、shift和unshift）就清楚地反映出其作用。</p>
-<p>PS：传统的队列是一种数据结构，删除元素与加入元素的顺序相同，就称为先进先出，或FIFO。相反，栈是另外一种数据结构，其中删除元素的顺序与加入时的顺序相反，这成为后进先出，或LIFO。</p>
-<h3 id="在数组头添加元素"><a href="#在数组头添加元素" class="headerlink" title="在数组头添加元素"></a>在数组头添加元素</h3><p>array_unshift() 函数在数组第一个元素上添加元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$classmate = array(&apos;Jim&apos;,&apos;Billy&apos;);</span><br><span class="line">array_unshitf($classmate,&apos;lily&apos;,&apos;koko&apos;);</span><br><span class="line">//那么数组变成了</span><br><span class="line">//$classmate = array(&apos;lily&apos;,&apos;koko&apos;,&apos;Jim&apos;,&apos;Billy&apos;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="在数组尾添加元素"><a href="#在数组尾添加元素" class="headerlink" title="在数组尾添加元素"></a>在数组尾添加元素</h2><pre><code>array_push() 函数的返回值是int  数据类型，是压入数据后数组中元素的个数
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$classmate = array(&apos;Jim&apos;,&apos;Billy&apos;);</span><br><span class="line">array_push($classmate,&apos;koko&apos;);</span><br><span class="line">//那么原来的数组成为</span><br><span class="line">$classmate = array(&apos;Jim&apos;,&apos;Billy&apos;,&apos;koko&apos;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="从数组头删除元素"><a href="#从数组头删除元素" class="headerlink" title="从数组头删除元素"></a>从数组头删除元素</h3><p>array_shift()函数删除并返回数组中找到的元素。其结果是，如果使用的是数值健，则所有相应的值都会下移，而使用关联键的数组不受影响<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$classmate =array(&apos;Jim&apos;,&apos;Billy&apos;,&apos;KoKo&apos;);</span><br><span class="line">array_shift($classmate);</span><br><span class="line">//print_r  $classmate=array(&apos;Billy&apos;,&apos;KoKo&apos;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-<p>###从数组尾删除元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$classmate =array(&apos;Jim&apos;,&apos;Billy&apos;,&apos;KoKo&apos;);</span><br><span class="line">array_pop($classmate);</span><br><span class="line">//print_r $classmate = array(&apos;Jim&apos;,&apos;Billy&apos;);</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-
+        <h3 id="sort-函数"><a href="#sort-函数" class="headerlink" title="sort()函数"></a>sort()函数</h3>
       
     </div>
     
@@ -371,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/18/PHP-数组教程2-创建数组的方法/" rel="next" title="PHP 数组教程2 创建数组的方法">
-                <i class="fa fa-chevron-left"></i> PHP 数组教程2 创建数组的方法
+              <a href="/2017/11/19/PHP数据教程4-PHP查找与搜索数组元素/" rel="next" title="PHP 数据教程4 PHP查找与搜索数组元素">
+                <i class="fa fa-chevron-left"></i> PHP 数据教程4 PHP查找与搜索数组元素
               </a>
             
           </div>
@@ -381,8 +374,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/19/PHP数据教程4-PHP查找与搜索数组元素/" rel="prev" title="PHP 数据教程4 PHP查找与搜索数组元素">
-                PHP 数据教程4 PHP查找与搜索数组元素 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/21/PHP-FTP-SFTP-上传下载/" rel="prev" title="PHP FTP SFTP 上传下载">
+                PHP FTP SFTP 上传下载 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -517,7 +510,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP增加与删除数组元素"><span class="nav-number">1.</span> <span class="nav-text">PHP增加与删除数组元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在数组头添加元素"><span class="nav-number">2.</span> <span class="nav-text">在数组头添加元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在数组尾添加元素"><span class="nav-number"></span> <span class="nav-text">在数组尾添加元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从数组头删除元素"><span class="nav-number">1.</span> <span class="nav-text">从数组头删除元素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sort-函数"><span class="nav-number">1.</span> <span class="nav-text">sort()函数</span></a></li></ol></div>
             
 
           </div>

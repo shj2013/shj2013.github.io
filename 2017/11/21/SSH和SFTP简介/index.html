@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="PHP," />
+  <meta name="keywords" content="PHP,FTP,SFTP," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="PHP增加与删除数组元素有时候我们需要扩展一个数组，或者删掉数组的一部分，PHP为扩展和缩小数组提供了一些函数。对于那些希望模仿各种队列实现（FIFO、LIFO）的程序员来说，这些函数可以提供便利。顾名思义，从这些函数的函数名（push、pop、shift和unshift）就清楚地反映出其作用。 PS：传统的队列是一种">
-<meta name="keywords" content="PHP">
+<meta name="description" content="SSH和SFTP简介传统FTP 在传输机制和实现原理上是没有考虑安全机制的，因为它们在网络上用明文传送数据、用户帐号和用户口令，别有用心的人非常容易地就可以截获这些数据、用户帐 号和用户口令。而且，这些网络服务程序容易受到“中间人”（man-in-the-middle）这种攻击方式的攻击。所谓“中间人”的攻击方式，就是">
+<meta name="keywords" content="PHP,FTP,SFTP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP 数组教程3 PHP增加与删除数组元素">
-<meta property="og:url" content="http://yoursite.com/2017/11/18/PHP-数组教程3-PHP增加与删除数组元素/index.html">
+<meta property="og:title" content="SSH和SFTP简介">
+<meta property="og:url" content="http://yoursite.com/2017/11/21/SSH和SFTP简介/index.html">
 <meta property="og:site_name" content="爱生活 爱PHP">
-<meta property="og:description" content="PHP增加与删除数组元素有时候我们需要扩展一个数组，或者删掉数组的一部分，PHP为扩展和缩小数组提供了一些函数。对于那些希望模仿各种队列实现（FIFO、LIFO）的程序员来说，这些函数可以提供便利。顾名思义，从这些函数的函数名（push、pop、shift和unshift）就清楚地反映出其作用。 PS：传统的队列是一种数据结构，删除元素与加入元素的顺序相同，就称为先进先出，或FIFO。相反，栈是另">
+<meta property="og:description" content="SSH和SFTP简介传统FTP 在传输机制和实现原理上是没有考虑安全机制的，因为它们在网络上用明文传送数据、用户帐号和用户口令，别有用心的人非常容易地就可以截获这些数据、用户帐 号和用户口令。而且，这些网络服务程序容易受到“中间人”（man-in-the-middle）这种攻击方式的攻击。所谓“中间人”的攻击方式，就是” “中间人”冒充真正的服务器接收你的传给服务器的数据，然后再冒充你把数据传给真">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-19T13:42:07.203Z">
+<meta property="og:updated_time" content="2017-11-21T07:01:27.310Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP 数组教程3 PHP增加与删除数组元素">
-<meta name="twitter:description" content="PHP增加与删除数组元素有时候我们需要扩展一个数组，或者删掉数组的一部分，PHP为扩展和缩小数组提供了一些函数。对于那些希望模仿各种队列实现（FIFO、LIFO）的程序员来说，这些函数可以提供便利。顾名思义，从这些函数的函数名（push、pop、shift和unshift）就清楚地反映出其作用。 PS：传统的队列是一种数据结构，删除元素与加入元素的顺序相同，就称为先进先出，或FIFO。相反，栈是另">
+<meta name="twitter:title" content="SSH和SFTP简介">
+<meta name="twitter:description" content="SSH和SFTP简介传统FTP 在传输机制和实现原理上是没有考虑安全机制的，因为它们在网络上用明文传送数据、用户帐号和用户口令，别有用心的人非常容易地就可以截获这些数据、用户帐 号和用户口令。而且，这些网络服务程序容易受到“中间人”（man-in-the-middle）这种攻击方式的攻击。所谓“中间人”的攻击方式，就是” “中间人”冒充真正的服务器接收你的传给服务器的数据，然后再冒充你把数据传给真">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/18/PHP-数组教程3-PHP增加与删除数组元素/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/21/SSH和SFTP简介/"/>
 
 
 
 
 
-  <title>PHP 数组教程3 PHP增加与删除数组元素 | 爱生活 爱PHP</title>
+  <title>SSH和SFTP简介 | 爱生活 爱PHP</title>
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/18/PHP-数组教程3-PHP增加与删除数组元素/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/21/SSH和SFTP简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="suhuajun">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PHP 数组教程3 PHP增加与删除数组元素</h1>
+          <h1 class="post-title" itemprop="name headline">SSH和SFTP简介</h1>
         
 
         <div class="post-meta">
@@ -274,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T13:48:40+08:00">
-                2017-11-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T14:54:35+08:00">
+                2017-11-21
               </time>
             
 
@@ -297,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP数组教程/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP数组教程</span>
+                  <a href="/categories/PHP-FTP-SFTP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP FTP SFTP</span>
                   </a>
                 </span>
 
@@ -334,13 +334,12 @@
       
 
       
-        <h3 id="PHP增加与删除数组元素"><a href="#PHP增加与删除数组元素" class="headerlink" title="PHP增加与删除数组元素"></a>PHP增加与删除数组元素</h3><p>有时候我们需要扩展一个数组，或者删掉数组的一部分，PHP为扩展和缩小数组提供了一些函数。对于那些希望模仿各种队列实现（FIFO、LIFO）的程序员来说，这些函数可以提供便利。顾名思义，从这些函数的函数名（push、pop、shift和unshift）就清楚地反映出其作用。</p>
-<p>PS：传统的队列是一种数据结构，删除元素与加入元素的顺序相同，就称为先进先出，或FIFO。相反，栈是另外一种数据结构，其中删除元素的顺序与加入时的顺序相反，这成为后进先出，或LIFO。</p>
-<h3 id="在数组头添加元素"><a href="#在数组头添加元素" class="headerlink" title="在数组头添加元素"></a>在数组头添加元素</h3><p>array_unshift() 函数在数组第一个元素上添加元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$classmate = array(&apos;Jim&apos;,&apos;Billy&apos;);</span><br><span class="line">array_unshitf($classmate,&apos;lily&apos;,&apos;koko&apos;);</span><br><span class="line">//那么数组变成了</span><br><span class="line">//$classmate = array(&apos;lily&apos;,&apos;koko&apos;,&apos;Jim&apos;,&apos;Billy&apos;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="在数组尾添加元素"><a href="#在数组尾添加元素" class="headerlink" title="在数组尾添加元素"></a>在数组尾添加元素</h2><pre><code>array_push() 函数的返回值是int  数据类型，是压入数据后数组中元素的个数
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$classmate = array(&apos;Jim&apos;,&apos;Billy&apos;);</span><br><span class="line">array_push($classmate,&apos;koko&apos;);</span><br><span class="line">//那么原来的数组成为</span><br><span class="line">$classmate = array(&apos;Jim&apos;,&apos;Billy&apos;,&apos;koko&apos;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="从数组头删除元素"><a href="#从数组头删除元素" class="headerlink" title="从数组头删除元素"></a>从数组头删除元素</h3><p>array_shift()函数删除并返回数组中找到的元素。其结果是，如果使用的是数值健，则所有相应的值都会下移，而使用关联键的数组不受影响<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$classmate =array(&apos;Jim&apos;,&apos;Billy&apos;,&apos;KoKo&apos;);</span><br><span class="line">array_shift($classmate);</span><br><span class="line">//print_r  $classmate=array(&apos;Billy&apos;,&apos;KoKo&apos;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-<p>###从数组尾删除元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$classmate =array(&apos;Jim&apos;,&apos;Billy&apos;,&apos;KoKo&apos;);</span><br><span class="line">array_pop($classmate);</span><br><span class="line">//print_r $classmate = array(&apos;Jim&apos;,&apos;Billy&apos;);</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+        <h3 id="SSH和SFTP简介"><a href="#SSH和SFTP简介" class="headerlink" title="SSH和SFTP简介"></a>SSH和SFTP简介</h3><p>传统FTP 在传输机制和实现原理上是没有考虑安全机制的，因为它们在网络上用明文传送数据、用户帐号和用户口令，别有用心的人非常容易地就可以截获这些数据、用户帐 号和用户口令。而且，这些网络服务程序容易受到“中间人”（man-in-the-middle）这种攻击方式的攻击。所谓“中间人”的攻击方式，就是” “中间人”冒充真正的服务器接收你的传给服务器的数据，然后再冒充你把数据传给真正的服务器。服务器和你之间的数据传送被“中间人”做了手脚之后，就会出 现很严重的问题。<br>SSH是Secure Shell的缩写。通过使用SSH，可以把所有传输的数据进行加密，而且能够防止DNS欺骗和IP欺骗。使用SSH，还可以将传输的数据压缩，所以可以加快传输的速度。SSH可以为FTP提供一个安全的“通道”。<br>SSH协议是建立在应用层和传输层基础上的安全协议，它主要由以下三部分组成，共同实现SSH的安全保密机制。</p>
+<ul>
+<li>传输层协议，它提供诸如认证、信任和完整性检验等安全措施，此外它还可以任意地提供数据压缩功能。通常情况下，这些传输层协议都建立在面向连接的TCP数据流之上。</li>
+<li>用户认证协议层，用来实现服务器的跟客户端用户之间的身份认证，它运行在传输层协议之上。</li>
+<li>连接协议层，分配多个加密通道至一些逻辑通道上，它运行在用户认证层协议之上。<br>当安全的传输层连接建立之后，客户端将发送一个服务请求。当用户认证层连接建立之后将发送第二个服务请求。这就允许新定义的协议可以和以前的协议共存。连接协议提供可用作多种目的通道，为设置安全交互Shell会话和传输任意的TCP/IP端口和X11连接提供标准方法。<h3 id="SSH提供两种级别的安全验证：SSH1和SSH2。"><a href="#SSH提供两种级别的安全验证：SSH1和SSH2。" class="headerlink" title="SSH提供两种级别的安全验证：SSH1和SSH2。"></a>SSH提供两种级别的安全验证：SSH1和SSH2。</h3>SSH1（基于口令的安全验证），只要你知道自己的帐号和口令，就可以登录到远程主机，并且所有传输的数据都会被加密。但是，这种验证方式不能保证你正在连接的服务器就是你想连接的服务器。可能会有别的服务器在冒充真正的服务器，也就是受到”中间人”这种攻击方式的攻击。<br>SSH2（基 于密匙的安全验证），需要依靠密匙，也就是你必须为自己创建一对密匙，并把公有密匙放在需要访问的服务器上。如果你要连接到SSH服务器上，客户端软件就 会向服务器发出请求，请求用你的密匙进行安全验证。服务器收到请求之后，先在你在该服务器的用户根目录下寻找你的公有密匙，然后把它和你发送过来的公有密 匙进行比较。如果两个密匙一致，服务器就用公有密匙加密”质询”（challenge）并把它发送给客户端软件。客户端软件收到”质询”之后就可以用你的 私人密匙解密再把它发送给服务器。<br>与SSH1相比，SSH2不需要在网络上传送用户口令。另外，SSH2不仅加密所有传送的数据，而”中间人”这种攻击方式也是不可能的（因为他没有你的私人密匙）。但是整个登录的过程可能慢一些。<br>SSH最常见的应用就是，用它来取代传统的Telnet、FTP等网络应用程序，通过SSH登录到远方机器执行你想进行的工作与命令。在不安全的网路通讯环境中，它提供了很强的验证（authentication）机制与非常安全的通讯环境。<br>使用SSH协议进行FTP传输的协议叫SFTP（安全文件传输）。<br>我们可以使用SFTP作为传递信息文件的协议。使用SFTP，需要使FTP服务器支持SFTP协议，并且在客户端使用SFTP访问服务器。</li>
+</ul>
 
       
     </div>
@@ -360,6 +359,10 @@
           
             <a href="/tags/PHP/" rel="tag"># PHP</a>
           
+            <a href="/tags/FTP/" rel="tag"># FTP</a>
+          
+            <a href="/tags/SFTP/" rel="tag"># SFTP</a>
+          
         </div>
       
 
@@ -371,8 +374,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/18/PHP-数组教程2-创建数组的方法/" rel="next" title="PHP 数组教程2 创建数组的方法">
-                <i class="fa fa-chevron-left"></i> PHP 数组教程2 创建数组的方法
+              <a href="/2017/11/21/PHP-FTP-SFTP-上传下载/" rel="next" title="PHP FTP SFTP 上传下载">
+                <i class="fa fa-chevron-left"></i> PHP FTP SFTP 上传下载
               </a>
             
           </div>
@@ -380,10 +383,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/19/PHP数据教程4-PHP查找与搜索数组元素/" rel="prev" title="PHP 数据教程4 PHP查找与搜索数组元素">
-                PHP 数据教程4 PHP查找与搜索数组元素 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -517,7 +516,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP增加与删除数组元素"><span class="nav-number">1.</span> <span class="nav-text">PHP增加与删除数组元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在数组头添加元素"><span class="nav-number">2.</span> <span class="nav-text">在数组头添加元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在数组尾添加元素"><span class="nav-number"></span> <span class="nav-text">在数组尾添加元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从数组头删除元素"><span class="nav-number">1.</span> <span class="nav-text">从数组头删除元素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH和SFTP简介"><span class="nav-number">1.</span> <span class="nav-text">SSH和SFTP简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH提供两种级别的安全验证：SSH1和SSH2。"><span class="nav-number">2.</span> <span class="nav-text">SSH提供两种级别的安全验证：SSH1和SSH2。</span></a></li></ol></div>
             
 
           </div>

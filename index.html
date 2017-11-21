@@ -244,6 +244,438 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/21/SSH和SFTP简介/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="suhuajun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱生活 爱PHP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/21/SSH和SFTP简介/" itemprop="url">SSH和SFTP简介</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T14:54:35+08:00">
+                2017-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP-FTP-SFTP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP FTP SFTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="SSH和SFTP简介"><a href="#SSH和SFTP简介" class="headerlink" title="SSH和SFTP简介"></a>SSH和SFTP简介</h3><p>传统FTP 在传输机制和实现原理上是没有考虑安全机制的，因为它们在网络上用明文传送数据、用户帐号和用户口令，别有用心的人非常容易地就可以截获这些数据、用户帐 号和用户口令。而且，这些网络服务程序容易受到“中间人”（man-in-the-middle）这种攻击方式的攻击。所谓“中间人”的攻击方式，就是” “中间人”冒充真正的服务器接收你的传给服务器的数据，然后再冒充你把数据传给真正的服务器。服务器和你之间的数据传送被“中间人”做了手脚之后，就会出 现很严重的问题。<br>SSH是Secure Shell的缩写。通过使用SSH，可以把所有传输的数据进行加密，而且能够防止DNS欺骗和IP欺骗。使用SSH，还可以将传输的数据压缩，所以可以加快传输的速度。SSH可以为FTP提供一个安全的“通道”。<br>SSH协议是建立在应用层和传输层基础上的安全协议，它主要由以下三部分组成，共同实现SSH的安全保密机制。</p>
+<ul>
+<li>传输层协议，它提供诸如认证、信任和完整性检验等安全措施，此外它还可以任意地提供数据压缩功能。通常情况下，这些传输层协议都建立在面向连接的TCP数据流之上。</li>
+<li>用户认证协议层，用来实现服务器的跟客户端用户之间的身份认证，它运行在传输层协议之上。</li>
+<li>连接协议层，分配多个加密通道至一些逻辑通道上，它运行在用户认证层协议之上。<br>当安全的传输层连接建立之后，客户端将发送一个服务请求。当用户认证层连接建立之后将发送第二个服务请求。这就允许新定义的协议可以和以前的协议共存。连接协议提供可用作多种目的通道，为设置安全交互Shell会话和传输任意的TCP/IP端口和X11连接提供标准方法。<h3 id="SSH提供两种级别的安全验证：SSH1和SSH2。"><a href="#SSH提供两种级别的安全验证：SSH1和SSH2。" class="headerlink" title="SSH提供两种级别的安全验证：SSH1和SSH2。"></a>SSH提供两种级别的安全验证：SSH1和SSH2。</h3>SSH1（基于口令的安全验证），只要你知道自己的帐号和口令，就可以登录到远程主机，并且所有传输的数据都会被加密。但是，这种验证方式不能保证你正在连接的服务器就是你想连接的服务器。可能会有别的服务器在冒充真正的服务器，也就是受到”中间人”这种攻击方式的攻击。<br>SSH2（基 于密匙的安全验证），需要依靠密匙，也就是你必须为自己创建一对密匙，并把公有密匙放在需要访问的服务器上。如果你要连接到SSH服务器上，客户端软件就 会向服务器发出请求，请求用你的密匙进行安全验证。服务器收到请求之后，先在你在该服务器的用户根目录下寻找你的公有密匙，然后把它和你发送过来的公有密 匙进行比较。如果两个密匙一致，服务器就用公有密匙加密”质询”（challenge）并把它发送给客户端软件。客户端软件收到”质询”之后就可以用你的 私人密匙解密再把它发送给服务器。<br>与SSH1相比，SSH2不需要在网络上传送用户口令。另外，SSH2不仅加密所有传送的数据，而”中间人”这种攻击方式也是不可能的（因为他没有你的私人密匙）。但是整个登录的过程可能慢一些。<br>SSH最常见的应用就是，用它来取代传统的Telnet、FTP等网络应用程序，通过SSH登录到远方机器执行你想进行的工作与命令。在不安全的网路通讯环境中，它提供了很强的验证（authentication）机制与非常安全的通讯环境。<br>使用SSH协议进行FTP传输的协议叫SFTP（安全文件传输）。<br>我们可以使用SFTP作为传递信息文件的协议。使用SFTP，需要使FTP服务器支持SFTP协议，并且在客户端使用SFTP访问服务器。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/21/PHP-FTP-SFTP-上传下载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="suhuajun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱生活 爱PHP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/21/PHP-FTP-SFTP-上传下载/" itemprop="url">PHP FTP SFTP 上传下载</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T11:55:03+08:00">
+                2017-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP-FTP-SFTP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP FTP SFTP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="PHP之FTP、SFTP上传下载"><a href="#PHP之FTP、SFTP上传下载" class="headerlink" title="PHP之FTP、SFTP上传下载"></a>PHP之FTP、SFTP上传下载</h3><p>和泰国航空公司的第三方合作，进行数据传输， 采用文件加密后使用SFTP传输，使用PHP对接。</p>
+<h3 id="SFTP-类的封装"><a href="#SFTP-类的封装" class="headerlink" title="SFTP 类的封装"></a>SFTP 类的封装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace sftp;</span><br><span class="line">class Sftp&#123;</span><br><span class="line">  public $config;</span><br><span class="line">  public $conn;</span><br><span class="line">  private $user_pubkey_file=false;</span><br><span class="line"></span><br><span class="line">  /*</span><br><span class="line">  *初始化基本参数</span><br><span class="line">  */</span><br><span class="line">  public function init($config)&#123;</span><br><span class="line">  	$this-&gt;config = $config;</span><br><span class="line">  &#125;	</span><br><span class="line"></span><br><span class="line">  /*</span><br><span class="line">  *连接ssh, 连接有两种方式：用户名与密码登录，秘钥登录</span><br><span class="line">  */</span><br><span class="line">  public function connect()&#123;</span><br><span class="line">    $methods[&apos;hostkey&apos;] = $this-&gt;use_public_file ? &apos;ssh-rsa&apos;: &apos;&apos;;</span><br><span class="line"></span><br><span class="line">    if($this-&gt;use_public_file)&#123;</span><br><span class="line">       $rc = ssh2_auth_pubkey_file($this-&gt;conn,$this-&gt;config[&apos;user&apos;],$this-&gt;config[&apos;pubkey_file&apos;],$this-&gt;config[&apos;privkey_file&apos;],$this-&gt;config[&apos;passphrase&apos;]);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">         $rc = ssh2_auth_password( $this-&gt;conn, $this-&gt;config[&apos;user&apos;],$this-&gt;config[&apos;passwd&apos;]);</span><br><span class="line">    &#125;</span><br><span class="line">    return $c;</span><br><span class="line">  &#125;</span><br><span class="line">  // 传输数据 传输层协议,获得数据</span><br><span class="line">  public function download($remote, $local)&#123;</span><br><span class="line">      return ssh2_scp_recv($this-&gt;conn, $remote, $local);</span><br><span class="line">  &#125;</span><br><span class="line">  //传输数据 传输层协议,写入sftp服务器数据</span><br><span class="line">  public function upload($remote, $local,$file_mode=0664)&#123;</span><br><span class="line">      return ssh2_scp_send($this-&gt;conn, $local, $remote, $file_mode);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">   $config = array(&quot;host&quot;=&gt;&quot;host&quot;,&quot;user&quot;=&gt;&quot;&quot;,&quot;port&quot;=&gt;&quot;&quot;,&quot;passwd&quot;=&gt;&quot;&quot;);</span><br><span class="line">    $handle = new sftp\sftp();</span><br><span class="line">    $handle-&gt;init($config);</span><br><span class="line">    $rc = $handle-&gt;connect();</span><br><span class="line">    //上传，成功返回true</span><br><span class="line">    dump($handle-&gt;upload(&quot;remotePath&quot;,&quot;localPath&quot;));exit;</span><br><span class="line">    //下载，成功返回true</span><br><span class="line">    dump($handle-&gt;download(&quot;remotePath&quot;,&quot;localPath&quot;));exit;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/PHP-数组教程5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="suhuajun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱生活 爱PHP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/20/PHP-数组教程5/" itemprop="url">PHP 数组教程5 PHP数组元素的顺序与逆序排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T16:04:48+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP数组教程/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP数组教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="sort-函数"><a href="#sort-函数" class="headerlink" title="sort()函数"></a>sort()函数</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/19/PHP数据教程4-PHP查找与搜索数组元素/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1257,437 +1689,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/PHP-OOP-入门教程四-如何抽象出一个类/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="suhuajun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱生活 爱PHP">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/16/PHP-OOP-入门教程四-如何抽象出一个类/" itemprop="url">PHP(OOP)入门教程四 如何抽象出一个类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T23:56:20+08:00">
-                2017-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP面向对象教程/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP面向对象教程 </span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="如何抽象出一个类"><a href="#如何抽象出一个类" class="headerlink" title="如何抽象出一个类"></a>如何抽象出一个类</h2><p>面向对象程序的单位就是对象，但对象又是通过类的实例化出来的，所以我们首先要做的就是如何来声明类， 做出来一个类很容易，只要掌握基本的程序语法定义规则就可以做的出来，那么难点在那里呢？ 一个项目要用到多少个类，用多少个对象， 在那要定义类，定义一个什么样的类，这个类实例化出多少个对象， 类里面有多少个属性， 有多少个方法等等,这就需要读者通过在实际的开发中就实际问题分析设计和总结了。 类的定义：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class 类名&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="属性又叫做这个类的成员属性，方法叫做这个类的成员方法"><a href="#属性又叫做这个类的成员属性，方法叫做这个类的成员方法" class="headerlink" title="属性又叫做这个类的成员属性，方法叫做这个类的成员方法"></a>属性又叫做这个类的成员属性，方法叫做这个类的成员方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">	成员属性：姓名，性别，身高……</span><br><span class="line">	成员方法：会赚钱，爱睡懒觉……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过在类定义中使用关键字” public “来声明变量，即创建了类的属性，虽然在声明成员属性的时候可以给定初值， 但是在声明类的时候给成员属性初始值是没有必要的</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Person&#123;</span><br><span class="line">	//成员属性</span><br><span class="line">	public <span class="variable">$name</span>;</span><br><span class="line">	public <span class="variable">$age</span>;</span><br><span class="line">	public <span class="variable">$sex</span>;</span><br><span class="line"></span><br><span class="line">	//成员方法</span><br><span class="line">	public <span class="keyword">function</span> <span class="function"><span class="title">say</span></span>()&#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="string">"I can say hello"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	public <span class="keyword">function</span> <span class="function"><span class="title">run</span></span>()&#123;</span><br><span class="line">		<span class="built_in">return</span> <span class="string">"I can running"</span>;</span><br><span class="line">	&#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>上面就是一个类的声明， 从属性和方法上声明出来的一个类， 但是成员属性最好在声明的时候不要给初使的值， 因为我们做的人这个类是一个描述信息， 将来用它实例化对象， 比如实例化出来10个人对象， 那么这10个人， 每一个人的名子， 性别， 年龄都是不一样的， 所以最好不要在这个地方给成员属性赋初值， 而是对每个对象分别赋值的。<br>用同样的办法可以做出你想要的类了， 只要你能用属性和方法能描述出来的实体都可以定义成类， 去实例化对象。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/PHP-oop-入门教程三-什么是面向对象编程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="suhuajun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱生活 爱PHP">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/16/PHP-oop-入门教程三-什么是面向对象编程/" itemprop="url">PHP(OOP)入门教程三  什么是面向对象编程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T23:46:37+08:00">
-                2017-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP面向对象教程/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP面向对象教程 </span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="什么是面向对象编程"><a href="#什么是面向对象编程" class="headerlink" title="什么是面向对象编程"></a>什么是面向对象编程</h2><p>就不说他的概念，如果你想建立一个电脑教室，首先要有一个房间， 房间里面要有N台电脑，有N个桌子， N个椅子， 白板， 投影机等等，这些是什么，刚才咱们说了， 这就是对象，能看到的一个个的实体，可以说这个电脑教室的单位就是这一个个的实体对象， 它们共同组成了这个电脑教室，那么我们是做程序，这和面向对象有什么关系呢？开发一个系统程序和建一个电脑教室类似，你把每个独立的功能模块抽象成类形成 对象，由多个对象组成这个系统，这些对象之间都能够接收信息、处理数据和向其它对象发送信息等等相互作用。就构成了面向对象的程序。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/PHP-OOP-入门教程二-什么是类，什么是对象，类和对象之间的关系/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="suhuajun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱生活 爱PHP">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/16/PHP-OOP-入门教程二-什么是类，什么是对象，类和对象之间的关系/" itemprop="url">PHP(OOP)入门教程二 什么是类，什么是对象，类和对象之间的关系</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-16T23:40:54+08:00">
-                2017-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP面向对象教程/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP面向对象教程 </span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="什么是类，什么是对象，类和对象之间的关系"><a href="#什么是类，什么是对象，类和对象之间的关系" class="headerlink" title="什么是类，什么是对象，类和对象之间的关系"></a>什么是类，什么是对象，类和对象之间的关系</h2><p>类的概念：类是具有相同属性和服务的一组对象的集合。它为属于该类的所有对象提供了统一的抽象描述，其内部包括属性和服务两个主要部分。在面向对象的编程语言中，类是一个独立的程序单位，它应该有一个类名并包括属性说明和服务说明两个主要部分。<br>对象的概念：对象是系统中用来描述客观事物的一个实体，它是构成系统的一个基本单位。一个对象由一组属性和对这组属性进行操作的一组服务组成。从更抽象 的角度来说，对象是问题域或实现域中某些事物的一个抽象，它反映该事物在系统中需要保存的信息和发挥的作用；它是一组属性和有权对这些属性进行操作的一组 服务的封装体。客观世界是由对象和对象之间的联系组成的。<br>类与对象的关系就如模具和铸件的关系，类的实例化结果就是对象，而对一类对象的抽象就是类.类描述了一组有相同特性（属性）和相同行为（方法）的对象。上面大概就是它们的定义吧， 也许你是刚接触面象对象的朋友， 不要被概念的东西搞晕了， 给你举个列子吧，如果你去中关村想买几台组装的PC机，到了那里你第一步要干什么， 是不是装机的工程师和你坐在一起，按你提供的信息和你一起完成一个装机的配置单呀， 这个配置单就可以想像成是类，它就是一张纸，但是它上面记录了你要买的PC机的信息，如果用这个配置单买10台机器，那么这10台机子，都是按这个配置单 组成的，所以说这10台机子是一个类型的，也可以说是一类的。那么什么是对象呢，类的实例化结果就是对象, 用这个配置单配置出来（实例化出来）的机子就是对象， 是我们可以操作的实体， 10台机子， 10个对象。 每台机子都是独立的，只能说明他们是同一类的，对其中一个机做任何动作都不会影响其它9台机器，但是我对类修改， 也就是在这个配置单上加一个或少一个配件， 那么装出来的9个机子都改变了， 这是类和对象的关系(类的实例化结果就是对象) 。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1738,7 +1739,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1749,7 +1750,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1760,7 +1761,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
