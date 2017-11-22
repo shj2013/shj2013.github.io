@@ -244,6 +244,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/PHP-OOP-入门教程-构造方法-construct-与析构方法-destruct/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="苏华筠">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="让你奋斗的理由">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/22/PHP-OOP-入门教程-构造方法-construct-与析构方法-destruct/" itemprop="url">PHP(OOP)入门教程七 构造方法__construct()与析构方法__destruct()</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T17:08:33+08:00">
+                2017-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP面向对象教程/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP面向对象教程 </span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="构造方法construct-与析构方法destruct"><a href="#构造方法construct-与析构方法destruct" class="headerlink" title="构造方法construct()与析构方法destruct()"></a>构造方法<strong>construct()与析构方法</strong>destruct()</h3><p>大多数类都有一种称为构造函数的特殊方法。当创建一个对象时，它将自动调用构造函数，也就是使用new这个关键字来实例化对象的时候自动调用构造方法。构 造函数的声明与其它操作的声明一样，只是其名称必须是<strong>construct( )。这是PHP5中的变化，以前的版本中，构造函数的名称必须与类名相同，这种在PHP5中仍然可以用，但现在以经很少有人用了，这样做的好处是可以使构 造函数独立于类名，当类名发生改变时不需要改相应的构造函数名称了。为了向下兼容，如果一个类中没有名为</strong>construct( )的方法，PHP将搜索一个php4中的写法，与类名相同名的构造方法。<br>格式：function __construct ( [参数] ) { … … }<br>在一个类中只能声明一个构造方法，而是只有在每次创建对象的时候都会去调用一次构造方法，不能主动的调用这个方法，所以通常用它执行一些有用的初始化任务。比如对成属性在创建对象的时候赋初值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?</span><br><span class="line">// 创建一个人类</span><br><span class="line">class Person &#123;</span><br><span class="line">    // 下面是人的成员属性</span><br><span class="line">    public $name;  // 人的名子</span><br><span class="line">    public $sex;   // 人的性别</span><br><span class="line">    public $age;   // 人的年龄</span><br><span class="line"> </span><br><span class="line">    // 定义一个构造方法参数为姓名$name、性别$sex和年龄$age</span><br><span class="line">    function __construct($name, $sex, $age) &#123;</span><br><span class="line">        // 通过构造方法传进来的$name给成员属性$this-&gt;name赋初使值</span><br><span class="line">        $this-&gt;name = $name;</span><br><span class="line"> </span><br><span class="line">        // 通过构造方法传进来的$sex给成员属性$this-&gt;sex赋初使值</span><br><span class="line">        $this-&gt;sex = $sex;</span><br><span class="line"> </span><br><span class="line">        // 通过构造方法传进来的$age给成员属性$this-&gt;age赋初使值</span><br><span class="line">        $this-&gt;age = $age;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    // 这个人的说话方法</span><br><span class="line">    function say() &#123;</span><br><span class="line">        echo &quot;我的名子叫：&quot; . $this-&gt;name . &quot; 性别：&quot; . $this-&gt;sex . &quot; 我的年龄是：&quot; . $this-&gt;age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">// 通过构造方法创建3个对象$p1、p2、$p3,分别传入三个不同的实参为姓名、性别和年龄</span><br><span class="line">$p1 = new Person(&quot;张三&quot;,&quot;男&quot;, 20);</span><br><span class="line">$p2 = new Person(&quot;李四&quot;,&quot;女&quot;, 30);</span><br><span class="line">$p3 = new Person(&quot;王五&quot;,&quot;男&quot;, 40);</span><br><span class="line"> </span><br><span class="line">// 下面访问$p1对象中的说话方法</span><br><span class="line">$p1-&gt;say();</span><br><span class="line"> </span><br><span class="line">// 下面访问$p2对象中的说话方法</span><br><span class="line">$p2-&gt;say();</span><br><span class="line"> </span><br><span class="line">// 下面访问$p3对象中的说话方法</span><br><span class="line">$p3-&gt;say();</span><br><span class="line">//我的名子叫：张三 性别：男 我的年龄是：20我的名子叫：李四 性别：女 我的年龄是：30我的名子叫：王五 性别：男 我的年龄是：40</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="析构函数："><a href="#析构函数：" class="headerlink" title="析构函数："></a>析构函数：</h3><p>与构造函数相对的就是析构函数。析构函数是PHP5新添加的内容，在PHP4中没有析构函数。 析构函数允许在销毁一个类之前执行的一些操作或完成一些功能，比如说关闭文件， 释放结果集等，析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行，也就是对象在内存中被销毁前调用析构函数。与构造函数的名称类似， 一个类的析构函数名称必须是__destruct( )。析构函数不能带有任何参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;?</span><br><span class="line">// 创建一个人类</span><br><span class="line">class Person &#123;</span><br><span class="line">    // 下面是人的成员属性</span><br><span class="line">    public $name;  // 人的名子</span><br><span class="line">    public $sex;   // 人的性别</span><br><span class="line">    public $age;   // 人的年龄</span><br><span class="line"> </span><br><span class="line">    // 定义一个构造方法参数为姓名$name、性别$sex和年龄$age</span><br><span class="line">    function __construct($name, $sex, $age) &#123;</span><br><span class="line">        // 通过构造方法传进来的$name给成员属性$this-&gt;name赋初使值</span><br><span class="line">        $this-&gt;name = $name;</span><br><span class="line">         </span><br><span class="line">        // 通过构造方法传进来的$sex给成员属性$this-&gt;sex赋初使值</span><br><span class="line">        $this-&gt;sex = $sex;</span><br><span class="line">         </span><br><span class="line">        // 通过构造方法传进来的$age给成员属性$this-&gt;age赋初使值</span><br><span class="line">        $this-&gt;age = $age;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    // 这个人的说话方法</span><br><span class="line">    function say() &#123;</span><br><span class="line">        echo &quot;我的名子叫：&quot; . $this-&gt;name . &quot; 性别：&quot; . $this-&gt;sex . &quot; 我的年龄是：&quot; . $this-&gt;age;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    // 这是一个析构函数,在对象销毁前调用</span><br><span class="line">    function __destruct() &#123;</span><br><span class="line">        echo &quot;再见&quot; . $this-&gt;name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">// 通过构造方法创建3个对象$p1、p2、$p3,分别传入三个不同的实参为姓名、性别和年龄</span><br><span class="line">$p1 = new Person(&quot;张三&quot;, &quot;男&quot;, 20);</span><br><span class="line">$p2 = new Person(&quot;李四&quot;, &quot;女&quot;, 30);</span><br><span class="line">$p3 = new Person(&quot;王五&quot;, &quot;男&quot;, 40);</span><br><span class="line"> </span><br><span class="line">// 下面访问$p1对象中的说话方法</span><br><span class="line">$p1-&gt;say();</span><br><span class="line"> </span><br><span class="line">// 下面访问$p2对象中的说话方法</span><br><span class="line">$p2-&gt;say();</span><br><span class="line"> </span><br><span class="line">// 下面访问$p3对象中的说话方法</span><br><span class="line">$p3-&gt;say();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/PHP-OOP-入门教程六-引用”“的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1540,158 +1683,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/18/PHP-数组教程1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="苏华筠">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让你奋斗的理由">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/18/PHP-数组教程1/" itemprop="url">PHP 数组教程1 数组概念与定义</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-18T13:23:54+08:00">
-                2017-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP数组教程/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP数组教程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="PHP数组概念与定义"><a href="#PHP数组概念与定义" class="headerlink" title="PHP数组概念与定义"></a>PHP数组概念与定义</h3><p>传统上把数组（array）定义为一组有某种共同特性的元素，这里的共同特性包括相似性（车模、棒球队、水果类型等）和类型（例如所有元素都是字符串或整数）等，每个元素由一个特殊的标识符来区分，这称为健（key）。请注意，上面这句话中的传统上一词，因为现在可以摒弃这种定义，数组结构中可以包括完全无关的元素。PHP则更进一步，数组中的元素甚至可以不属于同一种类型。例如，一个数组可能包含州名、邮政编码、考试成绩或扑克牌等元素。<br>个实体包含两个项：前面提到的健（key）和值（value）。可以通过查询键来获取其相应的值。这些键可以是数值（numerical） 健或关联（associative）健。数值键与值没有真正的联系，它们只是值在数组中的位置。例如，一个数组中包含按字母顺序排列的水果名，键0表示apple，键2表示pear。使用PHP语法，该数组如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$fruites = array(</span><br><span class="line">	&apos;0&apos;=&gt;&apos;banner&apos;,</span><br><span class="line">	&apos;1&apos;=&gt;&apos;pear&apos;,</span><br><span class="line">	&apos;2&apos;=&gt;&apos;apple&apos;</span><br><span class="line">);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-<p>使用数组索引，可以如下引用第一个元素（apple）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$fruites[2];</span><br></pre></td></tr></table></figure></p>
-<p>PHP的数值索引组以位置0起始，而不是1。</p>
-<p>与此不同的是，关联键与值有一定关系，而不是值在数组中的位置。使用数值索引值不可行时，以关联的方式来映射数组会特别方便。例如，你可能希望创建一个将水果缩写映射到水果名的数组，如AP/apple、BA/banana和PE/Pear。使用PHP语法，该数组如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$fruits = array(</span><br><span class="line">    &quot;AP&quot;=&gt;&quot;apple&quot;,</span><br><span class="line">    &quot;BA&quot;=&gt;&quot;banana&quot;,</span><br><span class="line">    &quot;PE&quot;=&gt;&quot;pear&quot;</span><br><span class="line">    );</span><br><span class="line">$fruites[&apos;AP&apos;];</span><br></pre></td></tr></table></figure></p>
-<p>还可以创建包含数组的数组，这称为多维数组（multidimensional arrays）。例如，可以使用一个多维数组存储水果的信息。使用PHP语法，该数组如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$fruites = array(</span><br><span class="line">	&apos;apple&apos;=&gt;array(</span><br><span class="line">		&apos;name&apos;=&gt;&apos;apple&apos;,</span><br><span class="line">		&apos;color&apos;=&gt;&apos;red&apos;,</span><br><span class="line">	),</span><br><span class="line">	&apos;banner&apos;=&gt;array(</span><br><span class="line">		&apos;name&apos;=&gt;&apos;banner&apos;,</span><br><span class="line">		&apos;color&apos;=&gt;&apos;yellow&apos;</span><br><span class="line">	),</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">$fruites[&apos;apple&apos;][&apos;color&apos;]</span><br><span class="line">//red</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1737,7 +1733,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
